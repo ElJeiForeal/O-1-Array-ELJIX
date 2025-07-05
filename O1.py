@@ -1,4 +1,3 @@
-# made by GPT ( i was too lazy )
 class JICT:
     @staticmethod
     def Convert(obj):
@@ -10,15 +9,11 @@ class JICT:
             return tuple(sorted(JICT.Convert(e) for e in obj))
         elif isinstance(obj, dict):
             return tuple(sorted((JICT.Convert(k), JICT.Convert(v)) for k, v in obj.items()))
+        elif isinstance(obj, ELJIX):
+            return tuple(sorted((JICT.Convert(k), JICT.Convert(v)) for k, v in obj.items))
         else:
             return id(obj)
 
-    def __new__(cls, obj):
-        # When you call JICT(obj), it returns the converted tuple form directly
-        return JICT.Convert(obj)
-#
-
-#Made by me
 class ELJIX():
     def __init__(self):
         self.__key_to_value = {}
@@ -120,4 +115,3 @@ class ELJIX():
 
     def __repr__(self):
         return str(self.__key_to_value)   
-#
